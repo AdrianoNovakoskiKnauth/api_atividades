@@ -9,7 +9,7 @@ db_session = scoped_session(sessionmaker(autocommit=False,
 Base = declarative_base()
 Base.query = db_session.query_property()
 
-class Usuarios(Base):
+class Usuarios(Base):                  # Pleno = Usuários       Master = Administrador
     __tablename__ = 'usuarios'
     id = Column(Integer, primary_key=True)
     login = Column(String(20), unique=True)

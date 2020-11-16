@@ -9,8 +9,6 @@ def insere_pessoas(nome, idade):
 def consulta_pessoas():
     pessoas = Pessoas.query.all()
     print(pessoas.idade)
-    # pessoa = Pessoas.query.filter_by(idade=nome).first()
-    # print(pessoa.id)
 
 def altera_pessoas(nome):
     pessoa = Pessoas.query.filter_by(nome=nome).first()
@@ -23,7 +21,7 @@ def exclui_pessoa(nome):
     pessoa.delete()
 
 def insere_usuario(login, senha):
-    usuario = Usuarios(login=login, senha=senha)
+    usuario = Usuarios(login=login, senha=senha, status=1)
     usuario.save()
 
 def consulta_usuarios():
@@ -40,7 +38,7 @@ def consulta_atividades():
     print(response)
 
 def nova_ativ():
-    atividade = Atividades(nome="Limpar carro",estado='pendente' , pessoa='Adriano')
+    atividade = Atividades(nome="Limpar carro", estado='Pendente', pessoa='Adriano')
     print('dentro de nova atividade')
     atividade.save
     response = [{'id':atividade.id, 'nome':atividade.nome,'pessoa':atividade.pessoa}]
@@ -54,17 +52,13 @@ def deletar_atividade():
 if __name__ == '__main__':
     # consulta_atividades()
     # deletar_atividade()
-    # consulta_pessoas()
     # nova_ativ()
-    # consulta_atividades()
-    # consulta_pessoas()
 
     #insere_usuario('Adriano', '123')
-    insere_usuario('Admin', '123')
-    # insere_usuario('Adriel', '789')
-    #deleta_usuario('Adriano')
-    #consulta_usuarios()
-
+    #insere_usuario('Admin', '123')
+    #insere_usuario('Adriel', '789')
+    #deleta_usuario('Larissa')
+    consulta_usuarios()
 
     #insere_pessoas('Adriano', 28)
     #altera_pessoas('Adriano')
